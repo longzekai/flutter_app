@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'demo01/views/firstPage.dart';
+import 'package:flutter_app/demo01/views/detail.dart';
+import 'package:flutter_app/demo01/views/firstPage.dart';
+import 'package:flutter_app/demo01/views/secondPage.dart';
+import 'package:flutter_app/demo01/views/thirdPage.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -30,16 +33,44 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
-//      controller: controller,
-//      body: new TabBarView(
-//          children: <Widget>[
-//            new firstPage(),
-//            new SecondPage(),
-//            new ThirdPage()
-//          ]
-//      ),
+      body: new TabBarView(
+          controller: controller,
+          children: <Widget>[
+            new FirstPage(),
+            new SecondPage(),
+            new ThirdPage()
+          ]
+      ),
+      bottomNavigationBar: new Material(
+        color: Colors.orangeAccent,
+        child: new TabBar(
+          controller: controller,
+          tabs: <Tab>[
+            new Tab(text: "List",icon: new Icon(Icons.home)),
+            new Tab(text: "Message",icon: new Icon(Icons.message)),
+            new Tab(text: "Mine",icon: new Icon(Icons.cloud)),
+          ],
+        ),
+      ),
     ) ;
   }
-
-
 }
+
+class MyApp extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: 'Demo01',
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new MyHomePage(),
+        routes: <String, WidgetBuilder>{
+//          '/datail': (BuildContext context) => new Detail()
+        }
+    ) ;
+  }
+}
+
+void main() => runApp(new MyApp()) ;
