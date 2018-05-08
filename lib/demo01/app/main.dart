@@ -41,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
             new ThirdPage()
           ]
       ),
+
       bottomNavigationBar: new Material(
         color: Colors.orangeAccent,
         child: new TabBar(
