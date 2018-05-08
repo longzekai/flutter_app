@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/demo02/pages/TabPage1.dart';
+import 'package:flutter_app/demo02/pages/TabPage2.dart';
+import 'package:flutter_app/demo02/pages/TabPage3.dart';
 import 'package:flutter_app/demo02/pages/other_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -7,7 +10,11 @@ class HomePage extends StatefulWidget {
 
 }
 
-class _HomePageState extends State<HomePage>{
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin{
+
+
+//定义底部导航Tab
+  TabController _bottomNavigation;
 
 
   @override
@@ -84,9 +91,44 @@ class _HomePageState extends State<HomePage>{
           ],
         ),
       ),
-      body: new Center(
-        child:  new Text('HomePage',style: new TextStyle(fontSize: 35.0),),
+//      body: new Center(
+//        child:  new Text('HomePage',style: new TextStyle(fontSize: 35.0),),
+//      ),
+    body: new TabBarView(
+      controller: _bottomNavigation,
+        children: [
+          new TabPage1(data: '参数值'),
+          new TabPage2(),
+          new TabPage3(),
+    ]),
+      bottomNavigationBar:  new Material(
+        color: Colors.deepOrange,
+        child: new TabBar(
+            tabs: _bottomTabs,
+          controller: _bottomNavigation,
+          indicatorColor: Colors.white,
+        ),
       ),
     );
+  }
+
+  //定义底部导航项目
+  final List<Tab> _bottomTabs = <Tab>[
+    new Tab(text: 'Home',icon: new Icon(Icons.home),),
+    //icon和text的显示顺序已经内定，如需自定义，到child属性里面加吧
+    new Tab(icon: new Icon(Icons.history),text: 'History',),
+    new Tab(icon: new Icon(Icons.book),text: 'Book',),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _bottomNavigation = new TabController(length: 3, vsync: this) ;
+  }
+
+  @override
+  void dispose() {
+    _bottomNavigation.dispose();
+    super.dispose() ;
   }
 }
