@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 
-void main() {
-//  runApp(
-//    new Center(
-//      child: new Text(
-//        'Hello World!',
-//        textDirection: TextDirection.ltr,
-//      ),
-//    )
-//  );
-//    runApp(new MaterialApp(
-//      title: 'My app',
-//      home: new MyScaffold(),
-//    )) ;
-  runApp(new MaterialApp(
-    title: 'Flutter Tutorial',
-//      home: new TutorialHome(),
-//    home: new MyButton(),
-    home: new Counter(),
-  ));
-}
+//void main() {
+////  runApp(
+////    new Center(
+////      child: new Text(
+////        'Hello World!',
+////        textDirection: TextDirection.ltr,
+////      ),
+////    )
+////  );
+////    runApp(new MaterialApp(
+////      title: 'My app',
+////      home: new MyScaffold(),
+////    )) ;
+//  runApp(new MaterialApp(
+//    title: 'Flutter Tutorial',
+////      home: new TutorialHome(),
+////    home: new MyButton(),
+//    home: new Counter(),
+//  ));
+//}
 
 /*
 更改 widgets 显示状态
@@ -32,13 +32,13 @@ void main() {
  */
 
 class Counter extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return new _CounterState();
-  }
 //  @override
-//  createState() => new _CounterState();
+//  State<StatefulWidget> createState() {
+//    // TODO: implement createState
+//    return new _CounterState();
+//  }
+  @override
+  createState() => new _CounterState();
 }
 
 class _CounterState extends State<Counter>{
@@ -60,12 +60,22 @@ class _CounterState extends State<Counter>{
 //        new Text('Count:$_counter'),
 //      ],
 //    );
-      return new Row(
-        children: <Widget>[
-          new CounterIncrementor(onPressed: _increment,),
-          new CounterDisplay(count: _counter,)
-        ],
-      );
+    return new MaterialApp(
+      home: new Scaffold(
+        appBar:  new AppBar(
+          title: new Text('计数器'),
+        ),
+        body: new Center(
+          child: new Row(
+            children: <Widget>[
+              new CounterIncrementor(onPressed: _increment,),
+              new CounterDisplay(count: _counter,)
+            ],
+          ),
+        )
+      ),
+    ) ;
+
   }
 }
 

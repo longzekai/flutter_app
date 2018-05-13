@@ -57,21 +57,21 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   }
 }
 
-class MyApp extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Demo01',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: new MyHomePage(),
-        routes: <String, WidgetBuilder>{
-//          '/datail': (BuildContext context) => new Detail()
-        }
-    ) ;
-  }
-}
-
-void main() => runApp(new MyApp()) ;
+//class MyApp extends StatelessWidget {
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return new MaterialApp(
+//      title: 'Demo01',
+//      theme: new ThemeData(
+//        primarySwatch: Colors.blue,
+//      ),
+//      home: new MyHomePage(),
+//        routes: <String, WidgetBuilder>{
+////          '/datail': (BuildContext context) => new Detail()
+//        }
+//    ) ;
+//  }
+//}
+//
+//void main() => runApp(new MyApp()) ;

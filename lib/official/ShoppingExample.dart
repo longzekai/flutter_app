@@ -86,18 +86,18 @@ class _ShoppingListState extends State<ShoppingList> {
 
 }
 
-void main(){
-  runApp(new MaterialApp(
-    title: 'Shopping App',
-    home: new ShoppingList(
-      products: <Product>[
-        new Product(name: 'Eggs'),
-        new Product(name: 'Flour'),
-        new Product(name: 'Chocolate chips'),
-      ],
-    ),
-  ));
-}
+//void main(){
+//  runApp(new MaterialApp(
+//    title: 'Shopping App',
+//    home: new ShoppingList(
+//      products: <Product>[
+//        new Product(name: 'Eggs'),
+//        new Product(name: 'Flour'),
+//        new Product(name: 'Chocolate chips'),
+//      ],
+//    ),
+//  ));
+//}
 
 
 

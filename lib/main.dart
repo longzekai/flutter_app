@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/main/data/demo_data.dart';
 
 void main() => runApp(new MainApp());
 
@@ -12,7 +13,7 @@ class MainApp extends StatelessWidget {
           title: new Text('Flutter Demo合集'),
         ),
 
-        body: new Center(child: new Text('test')),
+        body: new DemoData(),
       ),
     );
   }
